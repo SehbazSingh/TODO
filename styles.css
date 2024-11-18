@@ -33,54 +33,21 @@ body {
 
 }
 
-
-/* Search bar and theme button */
-.maintopbar {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    width: 100%;
-}
-
-.innertopbar {
-    display: flex;
-    justify-content: center;
-    border: 2px solid #6C63FF;
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.searchbox {
-    display: flex;
-    justify-content: center;
-}
-
-.searchbtn {
-    border: none;
-    background-color: white;
-}
-
-.textbox {
-    width: 350px;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-}
-
-.textbox:focus {
-    outline: none;
-}
-
 .themebtn {
     padding: 11px 22px;
+    margin-top: 10px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
     background-color: #6C63FF;
-    color: white;
     cursor: pointer;
     box-shadow: 1px 1px 3px #6C63FF;
     margin-left: 10px;
+}
+
+
+.top{
+    padding-bottom: 100px;
 }
 
 /* Checkbox */
@@ -121,9 +88,9 @@ body {
     position: absolute;
     display: none;
     left: 13px;
-    top: 5px;
-    width: 9px;
-    height: 22px;
+    top: 3%;
+    width: 6px;
+    height: 25px;
     border: solid white;
     border-width: 0 5px 5px 0;
     transform: rotate(45deg);
@@ -168,10 +135,26 @@ body {
 }
 
 .menu {
-    display: flex;
-    border: none;
-    background-color: white;
+    background-color: transparent; /* Removes background color */
+    border: none; /* Removes border */
+    padding-right: 20px; /* Removes any default padding */
+    margin: 0; /* Removes default margins */
+    cursor: pointer; /* Keeps pointer for interactivity */
 }
+
+/* Optional: Adjust hover effects for better feedback */
+.menu:hover {
+    opacity: 0.8; /* Slightly dim the icon on hover */
+    transform: scale(1.1); /* Optional: Add a subtle zoom effect */
+    transition: all 0.2s ease-in-out; /* Smooth transition */
+}
+
+/* Adjust icon size if needed */
+.menu img {
+    width: 20px; /* Adjust width */
+    height: 20px; /* Adjust height */
+}
+
 
 .innerbutton {
     display: none;
@@ -225,10 +208,11 @@ body {
     top: 0;
     left: 0;
     margin: 0;
-    padding: 0;
+    padding-bottom:0;
 }
 
 .empty img {
+    background-color: transparent;
     max-width: 300px;
     height: auto;
 }
@@ -296,6 +280,65 @@ body {
     background: #6C63FF;
     color: white;
 }
+
+
+/* Task Divider */
+.task-divider {
+    width: 80%; /* Match task container width */
+    border: 0;
+    height: 1px;
+    background-color: #6C63FF;
+    opacity: 80%;
+    margin: 10px 0;
+}
+
+
+
+
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .themebtn {
+    background-color: #ffffff;
+    color: #121212;
+    box-shadow: 1px 1px 3px #ffffff;
+}
+
+body.dark-mode .checkbox .checkmark {
+    background-color: #333333;
+    border-color: #ffffff;
+}
+
+body.dark-mode .checkbox input:checked + .checkmark {
+    background-color: #6C63FF;
+
+}
+
+/* Add other dark mode-specific styles as needed */
+.themebtn img {
+    width: 20px; /* Adjust size */
+    height: 20px;
+}
+
+body.dark-mode .modal {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+body.dark-mode .modal input {
+    background-color: #333333;
+    color:#b4b4b483
+
+}
+body.dark-mode .modal h2 {
+    color: #b4b4b483; /* White for dark mode */
+}
+
+
 
 
 
