@@ -338,6 +338,24 @@ body.dark-mode .modal h2 {
     color: #b4b4b483; /* White for dark mode */
 }
 
+@media (max-width: 768px) {
+    .footerbutton {
+        position: fixed;
+        bottom: 20px; /* Adjust spacing from the bottom */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Center alignment adjustment */
+        background-color: white; /* Optional styling */
+        border-radius: 50%; /* Optional: make it circular */
+        padding: 10px; /* Optional: adjust padding */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+    }
+
+    .plusicon {
+        margin: 0; /* Reset any margin affecting alignment */
+    }
+}
+
+
 
 
 
