@@ -13,30 +13,29 @@
     <div class="title">
         <h1>Todo List</h1>
     </div>
-    <div class="maintopbar">
-        <div class="innertopbar">
-            <div class="searchbox">
-                <input type="text" id="textbox" class="textbox" placeholder="Search for a task"> 
-                <button class="searchbtn">
-                    <img src="images/search.png" class="searchicon">
-                </button>
+    <div class="main-content">
+        <div class="maintopbar">
+            <div class="innertopbar">
+                <div class="searchbox">
+                    <input type="text" id="textbox" class="textbox" placeholder="Search for a task"> 
+                    <button class="searchbtn">
+                        <img src="images/search.png" class="searchicon">
+                    </button>
+                </div>
             </div>
+            <button class="themebtn">
+                <img src="images/moon.png">
+            </button>
         </div>
-        <button class="themebtn">
-            <img src="images/moon.png">
-        </button>
+        
+        <div id="taskContainer" class="task-container">
+            <!-- Task items will be dynamically added here -->
+        </div>
+        
+        <div class="empty">
+            <img src="images/empty.png" alt="Nothing here">
+        </div>
     </div>
-    
-    <div id="taskContainer" class="task-container">
-        <!-- Task items will be dynamically added here -->
-    </div>
-    
-    <hr class="hrbar">
-    
-    <div class="empty">
-        <img src="images/empty.png" alt="Nothing here">
-    </div>
-    
     <div class="footer">
         <button class="footerbutton" onclick="on()">
             <img src="images/add.png" class="plusicon">
@@ -45,7 +44,6 @@
     
     <!-- Overlay -->
     <div id="overlay" class="overlay" onclick="off()">
-        <!-- Modal Dialog -->
         <div class="modal">
             <h2>New Task</h2>
             <input type="text" id="taskInput" placeholder="Input your task...">
