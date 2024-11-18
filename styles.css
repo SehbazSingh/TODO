@@ -2,26 +2,54 @@
     font-family: "Ubuntu", sans-serif;
     font-weight: 500;
     font-style: normal;
-    color : #333333;
+    color: #333333;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* Whole body */
-body { 
-    margin: 0; 
-    height: 90vh; 
-    position: relative; 
-}
-
-/* Title */
+/* Title at the top */
 .title {
-    display: flex;
-    margin-top: 5vh;
-    margin-bottom: 1vh;
-    justify-content: center;
+    position: fixed; /* Keep it at the top of the page */
+    top: 0;
+    left: 0;
+    width: 100%; /* Span the full width */
+    margin-top:10px ;
+    padding: 15px 0; /* Add vertical padding */
+    text-align: center; /* Center-align the title text */
     font-size: 3vh;
+    z-index: 10; /* Ensure it appears above other elements */
+
 }
+
+/* Adjust body layout */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px; /* Create space for the fixed title */
+
+}
+
 
 /* Search bar and theme button */
+.maintopbar {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.innertopbar {
+    display: flex;
+    justify-content: center;
+    border: 2px solid #6C63FF;
+    border-radius: 5px;
+    padding: 5px;
+}
+
 .searchbox {
     display: flex;
     justify-content: center;
@@ -43,30 +71,17 @@ body {
     outline: none;
 }
 
-.maintopbar {
-    display: flex;
-    justify-content: center;
-}
-
-.innertopbar {
-    display: flex;
-    justify-content: center;
-    border: 2px solid #6C63FF;
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.themebtn { 
+.themebtn {
     padding: 11px 22px;
-    font-size: 16px; 
-    border: none; 
-    border-radius: 5px; 
-    background-color: #6C63FF; 
-    color: white; 
-    cursor: pointer; 
-    box-shadow: 1px 1px 3px #6C63FF; 
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6C63FF;
+    color: white;
+    cursor: pointer;
+    box-shadow: 1px 1px 3px #6C63FF;
     margin-left: 10px;
-} 
+}
 
 /* Checkbox */
 .checkbox {
@@ -96,7 +111,7 @@ body {
     border-radius: 5px;
 }
 
-.checkbox input:checked + .checkmark {
+.checkbox input:checked+.checkmark {
     background-color: #6C63FF;
     border-color: #6C63FF;
 }
@@ -114,7 +129,7 @@ body {
     transform: rotate(45deg);
 }
 
-.checkbox input:checked + .checkmark:after {
+.checkbox input:checked+.checkmark:after {
     display: block;
 }
 
@@ -123,17 +138,28 @@ body {
     transition: text-decoration 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-.checkbox input:checked + .checkmark + .task-label {
+.checkbox input:checked+.checkmark+.task-label {
     text-decoration: line-through;
     opacity: 80%;
 }
 
 /* Tasks */
 .task {
-    margin-left: 400px;
-    margin-top: 50px;
-    margin-bottom: -25px;
+    margin-top: 20px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    /* Center tasks within the container */
+}
+
+/* Task container */
+.task-container {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Hidden menu buttons */
@@ -142,88 +168,92 @@ body {
 }
 
 .menu {
-    right: 0;
     display: flex;
     border: none;
     background-color: white;
 }
 
 .innerbutton {
-    position: fixed;
-    margin-left: 640px;
     display: none;
-    margin-right: 100;
 }
 
 /* Horizontal separator */
 .hrbar {
-    margin-left: 400px;
-    margin-right: 400px;
+    width: 80%;
+    /* Center the horizontal rule */
     border: 0;
     height: 2px;
     background-color: #6C63FF;
     opacity: 75%;
-}
-
-.hrbar:hover .innerbutton {
-    display: flex;
+    margin: 20px 0;
+    /* Consistent spacing */
 }
 
 /* Footer */
 .plusicon {
-    background-color: white;
+    background-color: none;
     border: none;
+    margin-right: -500px;
+    margin-bottom: 50px;
 }
 
 .footerbutton {
     background-color: white;
     border: none;
-    cursor: pointer; /* Ensure the button is clickable */
+    cursor: pointer;
+    /* Ensure the button is clickable */
 }
 
 .footer {
     display: flex;
-    justify-content: right;
-    margin-right: 400px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    justify-content: center;
+    width: 100%;
     position: fixed;
     bottom: 0;
-    right: 0;
 }
 
 /* If no task found */
+/* Empty message should always be centered */
 .empty {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    height: 500px;
+    align-items: center;
+    width: 100%;
+    height: 100%; /* Ensure it spans the available height */
+    position: absolute; /* Absolute positioning for centering */
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
 }
 
-.empty {
-    display: none;
+.empty img {
+    max-width: 300px;
+    height: auto;
 }
 
-.whenaddingnewtask {
-    height: 100vh;
-    width: 100vh;
-}
-
-/* Overlay */
+    /* Overlay */
 .overlay {
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-    z-index: 1000; 
-    display: none; /* Initially hidden */
-    display: flex; /* Use flexbox to center the modal */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+       /* Semi-transparent black */
+    z-index: 1000;
+    display: none;
+        /* Initially hidden */
+    display: flex;
+        /* Use flexbox to center the modal */
+    justify-content: center;
+        /* Center horizontally */
+    align-items: center;
+        /* Center vertically */
 }
 
-/* Modal styling */
+    /* Modal styling */
 .modal {
     background: white;
     padding: 20px;
@@ -233,6 +263,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 80%;
+    max-width: 500px;
 }
 
 .modal input {
@@ -246,10 +278,10 @@ body {
 .modal-buttons {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 .modal button {
-    margin: 5px;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -264,3 +296,7 @@ body {
     background: #6C63FF;
     color: white;
 }
+
+
+
+
